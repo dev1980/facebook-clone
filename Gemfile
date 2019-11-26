@@ -51,5 +51,12 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+# Devise
+gem 'devise', '~> 4.2'
+
+# Omniauth for facebook login
+gem 'omniauth-facebook', '~> 5.0'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
