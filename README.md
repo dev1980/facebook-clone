@@ -21,6 +21,13 @@ Upadte gems from the Gemfile:
 ```
 bundle update
 ```
+To setup postgresql database you have to write your credentials in .env.template.
+
+```
+# .env.template
+PG_USERNAME='your username'
+PG_PASSWORD='your password'
+```
 
 Then migrate the database:
 ```
@@ -47,5 +54,6 @@ rails spec
 Ruby version 2.6.x
 Rails version 6.0.1
 Bundler version 2.0.2
+
 
 Authors: [Brham Dev Mahato](https://github.com/dev1980),  [Miguel Prada](https://github.com/mapra99)
