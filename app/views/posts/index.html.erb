@@ -1,1 +1,7 @@
-<h1>This is Post</h1>
+<% @posts.each do |p| %>
+  <div>
+    <h3><%= link_to p.user.name, p.user %> posted:</h3>
+    <span>Posted <%= time_ago_in_words p.created_at %> ago</span>
+    <p><%= p.content %></p>
+  </div>
+<% end %>
