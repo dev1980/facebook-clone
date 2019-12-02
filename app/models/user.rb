@@ -12,6 +12,4 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: { maximum: 50 }
-  validates :password, presence: true, length: { maximum: 10 }
-  validates :password_confirmation, presence: true, length: { maximum: 10 }
 end
