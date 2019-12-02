@@ -1,2 +1,8 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create New Post </h1>
+<%= form_for(@post) do |f| %>
+<%= f.label :content  %>
+<%= f.text_area :content  %>
+<%= f.submit 'Create Post'  %>
+
+
+<% end %>
