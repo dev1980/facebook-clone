@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container-fluid w-50 mx-auto">
+  <div class="row">
+    <div class="col-md-4 col-12 text-md-right text-center"> 
+      <%= gravatar_for @user %>
+    </div> 
+    <div class="col-md-8 col-12 text-md-left text-center"> 
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+    </div> 
+  </div>
+  <div class="row">
+  <h3 class="text-capitalize">Posts By <%= @user.name%>:</h3>
+  <% @user.posts.each do |p|  %>
+  <%=render partial: 'shared/post_content', locals:{post: p}  %>
+  <% end %>
+  </div>
+</div>

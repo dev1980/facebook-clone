@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save { email.downcase! }
+  before_save :format_attributes
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -12,4 +12,11 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: { maximum: 50 }
+
+  private
+
+  def format_attributes
+   email.downcase!
+   name.capitalize!
+  end
 end

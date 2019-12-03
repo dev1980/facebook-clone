@@ -1,0 +1,4 @@
+<div class="row">
+    <h3><%= gravatar_for post.user %> <%= link_to post.user.name, post.user %></h3>
+    <%= render partial: 'shared/post_content', locals:{post: post} %>
+</div>

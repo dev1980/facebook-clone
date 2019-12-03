@@ -1,7 +1,3 @@
 <% @posts.each do |p| %>
-  <div>
-    <h3><%= gravatar_for p.user %> <%= link_to p.user.name, p.user %></h3>
-    <span>Posted <%= time_ago_in_words p.created_at %> ago</span>
-    <p><%= p.content %></p>
-  </div>
+  <%= render partial:'shared/post', locals:{post: p} %>
 <% end %>
