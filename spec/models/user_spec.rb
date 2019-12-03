@@ -30,14 +30,8 @@ RSpec.describe User, type: :model do
 
   context 'validations of a new user' do
     before :example do
-      @user = User.new(name: 'Dev',
-                       email: 'dev1980@gmail.com',
-                       password: 'password123',
+      @user = User.new(name: 'Dev', email: 'dev1980@gmail.com', password: 'password123',
                        password_confirmation: 'password123')
-    end
-
-    it 'checks if user is valid' do
-      expect(@user.valid?).to eq(true)
     end
 
     it 'checks that the name must be present' do
@@ -58,12 +52,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    it 'checks that email must be present' do
-      @user.email = ''
-      expect(@user.valid?).to eq(false)
-    end
-
-    it 'checks that email must be unique' do
+    it 'checks that email must be present and unique' do
       @user.save
       user2 = @user.dup
       expect(user2.valid?).to eq(false)

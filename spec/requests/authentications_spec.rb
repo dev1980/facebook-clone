@@ -25,33 +25,16 @@ RSpec.describe 'Authentications', type: :feature do
     end
 
     it 'cannot see a user profile' do
-      user = User.create!(name: 'Dev',
-                          email: 'dev1980@gmail.com',
-                          password: 'password123',
+      user = User.create!(name: 'Dev', email: 'dev1980@gmail.com', password: 'password123',
                           password_confirmation: 'password123')
-
       visit user
-      expect(page.current_path).to eq('/users/sign_up')
-    end
-
-    it 'cannot see a post' do
-      user = User.create!(name: 'Dev',
-                          email: 'dev1980@gmail.com',
-                          password: 'password123',
-                          password_confirmation: 'password123')
-
-      post = Post.create!(content: 'This is a content', user_id: user.id)
-
-      visit post
       expect(page.current_path).to eq('/users/sign_up')
     end
   end
 
   context 'for a logged-in user' do
     before :example do
-      @user = User.create!(name: 'Dev',
-                           email: 'dev1980@gmail.com',
-                           password: 'password123',
+      @user = User.create!(name: 'Dev', email: 'dev1980@gmail.com', password: 'password123',
                            password_confirmation: 'password123')
       sign_in @user
     end
