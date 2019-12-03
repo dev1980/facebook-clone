@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Authentications", type: :feature do
-  context "for a not logged-in user" do
+RSpec.describe 'Authentications', type: :feature do
+  context 'for a not logged-in user' do
     it 'can signup' do
       visit '/users/sign_up'
       fill_in 'Name', with: 'A Name'
@@ -9,7 +11,7 @@ RSpec.describe "Authentications", type: :feature do
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
 
-      expect{click_button 'Sign up'}.to change{User.all.count}.by(1)
+      expect { click_button 'Sign up' }.to change { User.all.count }.by(1)
     end
 
     it 'cannot access to post index' do
@@ -37,7 +39,7 @@ RSpec.describe "Authentications", type: :feature do
                           email: 'dev1980@gmail.com',
                           password: 'password123',
                           password_confirmation: 'password123')
-      
+
       post = Post.create!(content: 'This is a content', user_id: user.id)
 
       visit post
@@ -45,7 +47,7 @@ RSpec.describe "Authentications", type: :feature do
     end
   end
 
-  context "for a logged-in user" do
+  context 'for a logged-in user' do
     before :example do
       @user = User.create!(name: 'Dev',
                            email: 'dev1980@gmail.com',
@@ -57,7 +59,7 @@ RSpec.describe "Authentications", type: :feature do
     it 'can create a post' do
       visit '/posts/new'
       fill_in 'post[content]', with: 'This is the Content of a Post'
-      expect{click_button 'Create Post'}.to change{Post.all.count}.by(1)
+      expect { click_button 'Create Post' }.to change { Post.all.count }.by(1)
     end
 
     it 'can see a user profile' do

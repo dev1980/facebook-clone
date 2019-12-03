@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :sign_up_if_not_logged_in
   def index
@@ -12,18 +14,18 @@ class PostsController < ApplicationController
     @post = current_user.posts.build
   end
 
-  def create 
+  def create
     @post = current_user.posts.build(post_params)
-      if @post.save
-        redirect_to root_path
-      else
-        redirect_to new_post_path
-      end
+    if @post.save
+      redirect_to root_path
+    else
+      redirect_to new_post_path
+    end
   end
 
   private
 
-def post_params
-  params.require(:post).permit(:content)
-end
+  def post_params
+    params.require(:post).permit(:content)
+  end
 end
