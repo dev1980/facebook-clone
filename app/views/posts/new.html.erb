@@ -1,8 +1,4 @@
-<h1>Create New Post </h1>
-<%= form_for(@post) do |f| %>
-<%= f.label :content  %>
-<%= f.text_area :content  %>
-<%= f.submit 'Create Post'  %>
-
-
-<% end %>
+<div class="w-50 mx-auto">
+<h4>Create New Post </h4>
+<%= render partial: 'shared/new_post' %>
+</div>
