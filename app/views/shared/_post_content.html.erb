@@ -4,11 +4,12 @@
     </div>
     <div class="col-6"><p>Likes | (1) </p></div>
     <div class="col-6">    
-        <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a> | (1)
+        <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a> |
+         <%= link_to "View Comments", post%> (<%= post.comments.count %>)
     </div>
       <div id="collapse<%=post.id  %>" class="collapse w-100" data-parent="#accordion">
         <div class="card-body ">
-        <%= form_for :comment, url: new_comment_path do |f| %>
+        <%= form_for :comment, url: comments_path do |f| %>
             <div class="form-group">
             <%= f.text_area :content, class: 'form-control' %>
             </div>
