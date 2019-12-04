@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
   before_action :sign_up_if_not_logged_in
-  def new
-  end
 
   def create
     post = Post.find(params[:comment][:post_id])

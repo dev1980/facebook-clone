@@ -2,7 +2,13 @@
     <span>Posted <%= link_to time_ago_in_words(post.created_at), post %> ago</span>
     <p class="mb-0"><%= post.content %></p>
     </div>
-    <div class="col-6"><p>Likes | (1) </p></div>
+    <div class="col-6">
+      <% if current_user.already_like? post %>
+      <%else%>
+        <%= link_to "Like", likings_path(post_id: post.id), method: :post %>
+      <%end%>
+      
+       | (<%=post.likings.count%>)</div>
     <div class="col-6">    
         <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a> |
          <%= link_to "View Comments", post%> (<%= post.comments.count %>)

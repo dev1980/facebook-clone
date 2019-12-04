@@ -17,9 +17,16 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: { maximum: 50 }
 
-  def like(post)
-    return if Liking.find_by(user_id: id, post_id: post.id)
+  def already_like?(post)
+    if Liking.exists?(user_id: id, post_id: post.id)
+      return true
+    else
+      return false
+    end
+  end
 
+  def like(post)
+    return if already_like?(post)
     likings.create(post_id: post.id)
   end
 
