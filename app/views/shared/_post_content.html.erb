@@ -1,4 +1,15 @@
     <div class="col-12">
     <span>Posted <%= link_to time_ago_in_words(post.created_at), post %> ago</span>
-    <p><%= post.content %></p>
+    <p class="mb-0"><%= post.content %></p>
     </div>
+    <div class="col-6"><p>Likes | (1) </p></div>
+    <div class="col-6">    
+        <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a> | (1)
+    </div>
+      <div id="collapse<%=post.id  %>" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+   
+ 
