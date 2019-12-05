@@ -88,6 +88,8 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
+    faker (2.8.0)
+      i18n (>= 1.6, < 1.8)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3-x64-mingw32)
@@ -288,6 +290,7 @@ DEPENDENCIES
   capybara
   devise (~> 4.2)
   dotenv-rails
+  faker (~> 2.8)
   guard-rspec
   jbuilder (~> 2.7)
   omniauth-facebook (~> 5.0)

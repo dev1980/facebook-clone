@@ -45,6 +45,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'dotenv-rails'
+  gem 'faker', '~> 2.8'
   
 end
 
