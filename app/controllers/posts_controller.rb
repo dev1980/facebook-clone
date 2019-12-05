@@ -3,7 +3,8 @@
 class PostsController < ApplicationController
   before_action :sign_up_if_not_logged_in
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 10)
+    
   end
 
   def show

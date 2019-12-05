@@ -26,7 +26,9 @@
       </div>
     </div>
   </div>
+    <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 <% @posts.each do |p| %>
   <%= render partial:'shared/post', locals:{post: p} %>
 <% end %>
+  <%= will_paginate @posts %>
 </div>

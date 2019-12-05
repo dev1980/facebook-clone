@@ -10,7 +10,8 @@
   </div>
   <div class="row">
   <h3 class="text-capitalize">Posts By <%= @user.name%>:</h3>
-  <% @user.posts.each do |p|  %>
+  <%= will_paginate @posts %>
+  <% @posts.each do |p|  %>
   <%=render partial: 'shared/post_content', locals:{post: p}  %>
   <% end %>
   </div>
