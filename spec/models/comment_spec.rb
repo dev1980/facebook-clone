@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
@@ -27,17 +29,13 @@ RSpec.describe Comment, type: :model do
 
   context 'validations for a new comment' do
     before :example do
-      @user = User.create!(name: 'Dev',
-                           email: 'dev1980@gmail.com',
-                           password: 'password123',
-                           password_confirmation: 'password123')
+      @user = User.create!(name: 'Dev', email: 'dev1980@gmail.com',
+                           password: 'password123', password_confirmation: 'password123')
 
       @post = Post.create!(content: 'This is the content of post 1',
                            user_id: @user.id)
 
-      @comment = Comment.new(content: 'This is the content of comment 1',
-                             post_id: @post.id,
-                             user_id: @user.id)
+      @comment = Comment.new(content: 'This is the content of comment 1', post_id: @post.id, user_id: @user.id)
     end
 
     it 'checks that comment must be valid' do
@@ -56,9 +54,7 @@ RSpec.describe Comment, type: :model do
 
     it 'checks that a comments group must be sorted by newest to oldest' do
       @comment.save
-      comment2 = Comment.create(content: 'This is the content of comment 2',
-                                user_id: @user.id,
-                                post_id: @post.id)
+      comment2 = Comment.create(content: 'This is the content of comment 2', user_id: @user.id, post_id: @post.id)
 
       expect(Comment.all).to eq([comment2, @comment])
     end

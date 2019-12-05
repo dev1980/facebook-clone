@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Liking, type: :model do
@@ -11,8 +13,8 @@ RSpec.describe Liking, type: :model do
       @post = Post.create!(content: 'This is the content of post 1',
                            user_id: @user.id)
 
-     @like = Liking.create!(user_id: @user.id, 
-                            post_id: @post.id)                            
+      @like = Liking.create!(user_id: @user.id,
+                             post_id: @post.id)
     end
 
     it 'the like can access to the user' do

@@ -31,7 +31,7 @@ class User < ApplicationRecord
     like = Liking.find_by(user_id: id, post_id: post.id)
     like&.destroy
   end
-  
+
   private
 
   def format_attributes

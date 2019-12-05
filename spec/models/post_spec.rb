@@ -61,12 +61,12 @@ RSpec.describe Post, type: :model do
                            password_confirmation: 'password123')
 
       @post = Post.create!(content: 'This is the content of post 1',
-                            user_id: @user.id)
-      @comment1 = Comment.create!(content: 'This is the first comment', 
+                           user_id: @user.id)
+      @comment1 = Comment.create!(content: 'This is the first comment',
                                   user_id: @user.id, post_id: @post.id)
-      @comment2 = Comment.create!(content: 'This is the second comment', 
-                                    user_id: @user.id, post_id: @post.id)
-      end
+      @comment2 = Comment.create!(content: 'This is the second comment',
+                                  user_id: @user.id, post_id: @post.id)
+    end
 
     it 'the post can access the created comments' do
       expect(@post.comments).to eq([@comment2, @comment1])
@@ -74,7 +74,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'the user can create a new comment' do
-      comment3= @post.comments.create!(content: 'This is the third comment', user_id: @user.id)
+      comment3 = @post.comments.create!(content: 'This is the third comment', user_id: @user.id)
       expect(@post.comments).to eq([comment3, @comment2, @comment1])
     end
   end

@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class Liking < ApplicationRecord
-    belongs_to :user
-    belongs_to :post
+  belongs_to :user
+  belongs_to :post
 end
