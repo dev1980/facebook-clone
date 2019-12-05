@@ -1,0 +1,8 @@
+<div class="col-6">
+  <% if current_user.already_like? post %>
+    <%= link_to "Dislike", liking_path(id: post.id), method: :delete %>
+  <%else%>
+    <%= link_to "Like", likings_path(post_id: post.id), method: :post %>
+  <%end%>
+    | (<%=post.likings.count%>)
+</div>

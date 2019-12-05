@@ -1,0 +1,12 @@
+<% post.comments.each do |comment| %>
+  <div class="col-12 pt-4">
+    <h4><%=link_to comment.user.name, comment.user%> said:</h4>
+  </div>
+  <div class="col-12">
+    <p><%=comment.content%></p>
+  </div>
+  <div class="col-12 pb-2">
+    <span>Comented <%=time_ago_in_words(comment.created_at)%> ago</span>
+  </div>
+  <hr class="w-100">
+<% end %>

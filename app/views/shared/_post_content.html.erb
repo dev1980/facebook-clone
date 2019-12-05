@@ -1,29 +1,9 @@
-    <div class="col-12">
-    <span>Posted <%= link_to time_ago_in_words(post.created_at), post %> ago</span>
-    <p class="mb-0"><%= post.content %></p>
-    </div>
-    <div class="col-6">
-      <% if current_user.already_like? post %>
-       <%= link_to "Dislike", liking_path(id: post.id), method: :delete %>
-      <%else%>
-        <%= link_to "Like", likings_path(post_id: post.id), method: :post %>
-      <%end%>
-      
-       | (<%=post.likings.count%>)</div>
-    <div class="col-6">    
-        <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a> |
-         <%= link_to "View Comments", post%> (<%= post.comments.count %>)
-    </div>
-      <div id="collapse<%=post.id  %>" class="collapse w-100" data-parent="#accordion">
-        <div class="card-body ">
-        <%= form_for :comment, url: comments_path do |f| %>
-            <div class="form-group">
-            <%= f.text_area :content, class: 'form-control' %>
-            </div>
-            <%= f.hidden_field :post_id, value: post.id %>
-            <%= f.submit 'Comment', class: 'btn btn-primary'  %>
-        <% end %>
-        </div>
-      </div>
+<div class="col-12">
+  <span>Posted <%= link_to time_ago_in_words(post.created_at), post %> ago</span>
+  <p class="mb-0"><%= post.content %></p>
+</div>
+
+<%= render partial: 'shared/likes', locals: {post: post}%>
+<%= render partial: 'shared/new_comment', locals: {post: post} %>
    
  
