@@ -83,7 +83,8 @@ RSpec.describe User, type: :model do
       expect(@user.comments).to eq([comment3, @comment2, @comment1])
     end
   end
-  context 'associations for 1 user that created 2 posts' do
+
+  context 'associations for 1 user that likes 2 posts' do
     before :example do
       @user = User.create!(name: 'Dev',
                            email: 'dev1980@gmail.com',
