@@ -8,7 +8,7 @@ class LikingsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:post_id])
+    post = Post.find(params[:id])
     current_user.dislike post if post
     redirect_back(fallback_location: root_path)
   end

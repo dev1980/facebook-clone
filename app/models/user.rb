@@ -18,22 +18,20 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   def already_like?(post)
-    if Liking.exists?(user_id: id, post_id: post.id)
-      return true
-    else
-      return false
-    end
+    Liking.exists?(user_id: id, post_id: post.id)
   end
 
   def like(post)
     return if already_like?(post)
+
     likings.create(post_id: post.id)
   end
 
   def dislike(post)
     like = Liking.find_by(user_id: id, post_id: post.id)
-    like.destroy if like
+    like&.destroy
   end
+  
   private
 
   def format_attributes
