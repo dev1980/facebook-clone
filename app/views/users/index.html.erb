@@ -1,0 +1,8 @@
+<div class="container-fluid w-50 mx-auto">
+  <div class="row">
+    <h2>All Users</h2>
+  </div>
+  <% @users.each do |u| %>
+    <%= render partial:'shared/user', locals:{user: u} %>
+  <% end %>
+</div>
