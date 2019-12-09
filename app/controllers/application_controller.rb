@@ -8,8 +8,4 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
-
-  def sign_up_if_not_logged_in
-    redirect_to new_user_registration_path unless user_signed_in?
-  end
 end

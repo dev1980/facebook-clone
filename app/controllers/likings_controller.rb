@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LikingsController < ApplicationController
-  before_action :sign_up_if_not_logged_in
+  before_action :authenticate_user!
 
   def create
     post = Post.find(params[:post_id])
