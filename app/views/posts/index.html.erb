@@ -1,9 +1,9 @@
 <div class="container-fluid w-50 mx-auto">
-  <%= render partial: 'shared/create_new_post' %>
+  <%= render partial: 'create_new_post' %>
   
   <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   <% @posts.each do |p| %>
-    <%= render partial:'shared/post', locals:{post: p} %>
+    <%= render partial:'post', locals:{post: p} %>
   <% end %>
   <%= will_paginate @posts %>
 </div>

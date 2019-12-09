@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row w-75 mx-auto">
-    <%= render partial:'shared/post', locals:{post: @post} %>
+    <%= render partial:'post', locals:{post: @post} %>
     
     <hr class="w-100">
 
-    <%= render partial: 'shared/comments', locals: {post: @post} %>
+    <%= render partial: 'comments', locals: {post: @post} %>
   </div>
 </div>
