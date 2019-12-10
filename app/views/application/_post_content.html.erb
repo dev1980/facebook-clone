@@ -1,0 +1,9 @@
+<div class="col-12">
+  <span>Posted <%= link_to time_ago_in_words(post.created_at), post %> ago</span>
+  <p class="mb-0"><%= post.content %></p>
+</div>
+
+<%= render partial: 'likes', locals: {post: post}%>
+<%= render partial: 'new_comment', locals: {post: post} %>
+   
+ 

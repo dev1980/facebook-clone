@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-class Post < ApplicationRecord
+class Comment < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :likings
+  belongs_to :post
+
   validates :content, presence: true,
-                      length: { maximum: 500 }
+                      length: { maximum: 200 }
+
   default_scope -> { order(created_at: :desc) }
 end

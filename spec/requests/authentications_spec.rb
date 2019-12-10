@@ -16,19 +16,19 @@ RSpec.describe 'Authentications', type: :feature do
 
     it 'cannot access to post index' do
       visit '/'
-      expect(page.current_path).to eq('/users/sign_up')
+      expect(page.current_path).to eq('/users/sign_in')
     end
 
     it 'cannot access to create a new post' do
       visit '/posts/new'
-      expect(page.current_path).to eq('/users/sign_up')
+      expect(page.current_path).to eq('/users/sign_in')
     end
 
     it 'cannot see a user profile' do
       user = User.create!(name: 'Dev', email: 'dev1980@gmail.com', password: 'password123',
                           password_confirmation: 'password123')
       visit user
-      expect(page.current_path).to eq('/users/sign_up')
+      expect(page.current_path).to eq('/users/sign_in')
     end
   end
 

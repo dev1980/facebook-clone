@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :sign_up_if_not_logged_in
+  before_action :authenticate_user!
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 10)
   end
 
   def show

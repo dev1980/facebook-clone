@@ -88,6 +88,8 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
+    faker (2.8.0)
+      i18n (>= 1.6, < 1.8)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3-x64-mingw32)
@@ -275,6 +277,9 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    will_paginate (3.2.1)
+    will_paginate-bootstrap4 (0.2.2)
+      will_paginate (~> 3.0, >= 3.0.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.2.1)
@@ -288,6 +293,7 @@ DEPENDENCIES
   capybara
   devise (~> 4.2)
   dotenv-rails
+  faker (~> 2.8)
   guard-rspec
   jbuilder (~> 2.7)
   omniauth-facebook (~> 5.0)
@@ -302,6 +308,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  will_paginate-bootstrap4
 
 RUBY VERSION
    ruby 2.6.4p104
