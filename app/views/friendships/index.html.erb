@@ -1,0 +1,23 @@
+<div class = "container mx-auto">
+  <div class = "row">
+    <h2>Friend Requests</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Name</th>
+          <th>Friend Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @friend_requests.each do |user| %>
+          <tr>
+            <td><%= gravatar_for user %></td>
+            <td><%= link_to user.name, user %></td>
+            <td><%= friend_status(user) %></td>
+          </tr>
+        <% end %>      
+      </tbody>
+    </table>
+  </div>
+</div>

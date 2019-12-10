@@ -9,6 +9,9 @@
         <li class="nav-item">
           <%= link_to current_user.name, current_user, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Friend Requests (#{current_user.friend_requests.count})", friendships_path, class: "nav-link" %>
+        </li>
       <li class="nav-item">
           <%= link_to 'Home', root_path, class: "nav-link" %>
         </li>

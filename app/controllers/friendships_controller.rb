@@ -1,4 +1,6 @@
 class FriendshipsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     user = User.find(params[:user_id])
     if user
@@ -12,5 +14,9 @@ class FriendshipsController < ApplicationController
       current_user.confirm_friend(user)
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def index
+    @friend_requests = current_user.friend_requests
   end
 end

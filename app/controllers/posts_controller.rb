@@ -3,7 +3,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 10)
+    @posts = current_user.friends_posts.paginate(page: params[:page], per_page: 10)
   end
 
   def show
