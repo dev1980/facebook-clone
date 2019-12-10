@@ -13,4 +13,8 @@ class FriendshipsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
+  def index
+    @friend_requests = current_user.friend_requests
+  end
 end

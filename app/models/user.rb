@@ -66,6 +66,14 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
+  def friends_posts
+    friend_ids = friends.map do |friend|
+      friend.id
+    end
+
+    Post.where("user_id IN (?)", friend_ids)
+  end
+
   private
 
   def format_attributes
