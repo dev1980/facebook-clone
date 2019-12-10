@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likings
+  has_many :sent_requests, foreign_key: :sender_id, class_name: 'Friendship'
+  has_many :received_requests, foreign_key: :receiver_id, class_name: 'Friendship'
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
