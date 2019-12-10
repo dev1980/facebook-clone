@@ -112,21 +112,17 @@ RSpec.describe User, type: :model do
       expect { @user.dislike @post1 }.to change { @post1.likings.count }.by(-1)
     end
   end
-  context 'user and friendship'  do
+  context 'user and friendship' do
     before :example do
-      @user2 = User.create!(name: 'Jow',
-                           email: 'jow@gmail.com',
-                           password: 'password123',
-                           password_confirmation: 'password123')
-      @user1 = User.create!(name: 'Dev',
-                            email: 'dev1980@gmail.com',
-                            password: 'password123',
-                            password_confirmation: 'password123')
-      @user3 = User.create!(name: 'Marya',
-                              email: 'marya@gmail.com',
-                              password: 'password123',
-                              password_confirmation: 'password123')
-      end
+      @user2 = User.create!(name: 'Jow', email: 'jow@gmail.com',
+                            password: 'password123', password_confirmation: 'password123')
+
+      @user1 = User.create!(name: 'Dev', email: 'dev1980@gmail.com',
+                            password: 'password123', password_confirmation: 'password123')
+
+      @user3 = User.create!(name: 'Marya', email: 'marya@gmail.com',
+                            password: 'password123', password_confirmation: 'password123')
+    end
     it 'user can send many friend request' do
       @user1.send_friend_request(@user2)
       @user1.send_friend_request(@user3)
@@ -141,8 +137,10 @@ RSpec.describe User, type: :model do
 
     it '2 users can be friend only if the request is accepted' do
       @user1.send_friend_request(@user2)
-      expect{@user2.confirm_friend(@user1)
-      @user1.reload}.to change{@user1.friends.count}.by(1)
+      expect do
+        @user2.confirm_friend(@user1)
+        @user1.reload
+      end .to change { @user1.friends.count }.by(1)
     end
   end
 end

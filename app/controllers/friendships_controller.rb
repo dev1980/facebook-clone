@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class FriendshipsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     user = User.find(params[:user_id])
     if user
@@ -8,7 +10,8 @@ class FriendshipsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  def update 
+
+  def update
     user = User.find(params[:id])
     if user
       current_user.confirm_friend(user)
