@@ -34,6 +34,16 @@ class User < ApplicationRecord
     like&.destroy
   end
 
+  def friends
+    friends_array = received_requests.map do  |u| 
+    u.sender if u.confirmed 
+    end
+    friends_array = friends_array + sent_requests.map do |u| 
+    u.receiver if u.confirmed 
+    end
+    friends_array.compact 
+    
+  end
   private
 
   def format_attributes
