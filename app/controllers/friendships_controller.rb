@@ -5,18 +5,18 @@ class FriendshipsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    if user
-      current_user.send_friend_request(user)
-      redirect_back(fallback_location: root_path)
-    end
+    return unless user
+
+    current_user.send_friend_request(user)
+    redirect_back(fallback_location: root_path)
   end
 
   def update
     user = User.find(params[:id])
-    if user
-      current_user.confirm_friend(user)
-      redirect_back(fallback_location: root_path)
-    end
+    return unless user
+
+    current_user.confirm_friend(user)
+    redirect_back(fallback_location: root_path)
   end
 
   def index

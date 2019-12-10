@@ -35,25 +35,25 @@ class User < ApplicationRecord
   end
 
   def friends
-    friends_array = received_requests.map do  |u| 
-    u.sender if u.confirmed 
+    friends_array = received_requests.map do |u|
+      u.sender if u.confirmed
     end
-    friends_array = friends_array + sent_requests.map do |u| 
-    u.receiver if u.confirmed 
+    friends_array += sent_requests.map do |u|
+      u.receiver if u.confirmed
     end
-    friends_array.compact 
+    friends_array.compact
   end
 
   def pending_friends
-    sent_requests.map{|u| u.receiver if !u.confirmed}.compact
+    sent_requests.map { |u| u.receiver unless u.confirmed }.compact
   end
 
   def friend_requests
-    received_requests.map{|u| u.sender if !u.confirmed}.compact
+    received_requests.map { |u| u.sender unless u.confirmed }.compact
   end
 
   def confirm_friend(user)
-    friendship = received_requests.find{|u| u.sender == user}
+    friendship = received_requests.find { |u| u.sender == user }
     friendship.confirmed = true
     friendship.save
   end
@@ -67,11 +67,9 @@ class User < ApplicationRecord
   end
 
   def friends_posts
-    friend_ids = friends.map do |friend|
-      friend.id
-    end
+    friend_ids = friends.map(&:id)
 
-    Post.where("user_id IN (?)", friend_ids)
+    Post.where('user_id IN (?)', friend_ids)
   end
 
   private
