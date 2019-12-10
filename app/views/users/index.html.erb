@@ -1,8 +1,10 @@
-<div class="container-fluid w-50 mx-auto">
-  <div class="row">
-    <h2>All Users</h2>
-  </div>
+<div class="container">
+    <h2 class="text-center">All Users</h2>
+    <hr >
+
+  <div class="row justify-content-center">
   <% @users.each do |u| %>
     <%= render partial:'user', locals:{user: u} %>
   <% end %>
+  </div>
 </div>

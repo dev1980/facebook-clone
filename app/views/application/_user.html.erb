@@ -1,3 +1,11 @@
-<div class="row">
-    <h4><%= gravatar_for user %> <%= link_to user.name, user %> <%= user.email %></h4>
-</div>
+
+  <div class="card col-3 mb-4 mx-2" >
+    <%= gravatar_for user, class: "card-img-top" %>
+    <div class="card-body ">
+      <h4 class="card-title"><%= user.name %></h4>
+      <p class="card-text"><%= user.email %></p>
+      <%= friend_status(user) %>
+      <%= link_to 'See Profile', user, class: "btn btn-primary" %>
+    </div>
+  </div>
+
