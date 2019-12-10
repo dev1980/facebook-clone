@@ -92,6 +92,7 @@ GEM
       i18n (>= 1.6, < 1.8)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
+    ffi (1.11.3)
     ffi (1.11.3-x64-mingw32)
     formatador (0.2.5)
     globalid (0.4.2)
@@ -133,12 +134,15 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.13.0)
+    msgpack (1.3.1)
     msgpack (1.3.1-x64-mingw32)
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nenv (0.3.0)
     nio4r (2.5.2)
+    nokogiri (1.10.5)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.5-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
@@ -159,12 +163,13 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    pg (1.1.4)
     pg (1.1.4-x64-mingw32)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (4.0.1)
-    puma (4.3.0)
+    puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.0.7)
     rack-proxy (0.6.5)
@@ -230,6 +235,8 @@ GEM
     rubyzip (2.0.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
+    sassc (2.2.1)
+      ffi (~> 1.9)
     sassc (2.2.1-x64-mingw32)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -285,6 +292,7 @@ GEM
     zeitwerk (2.2.1)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
@@ -298,7 +306,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   omniauth-facebook (~> 5.0)
   pg
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.1)
   rspec-rails
   sass-rails (>= 6)
