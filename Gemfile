@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -32,21 +34,20 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # The RSpec testing framework
   gem 'rspec-rails'
- 
+
   # Capybara, the library that allows us to interact with the browser using Ruby
   gem 'capybara'
- 
+
   # The following two gems aid with the nuts and bolts
   # of interacting with the browser.
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'dotenv-rails'
   gem 'faker', '~> 2.8'
-  
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -61,6 +62,6 @@ gem 'devise', '~> 4.2'
 gem 'omniauth-facebook', '~> 5.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'will_paginate-bootstrap4'
