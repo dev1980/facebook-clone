@@ -16,6 +16,7 @@ class FriendshipsController < ApplicationController
     return unless user
 
     current_user.confirm_friend(user)
+    Friendship.create sender_id: user.id, receiver_id: current_user.id, confirmed: true
     redirect_back(fallback_location: root_path)
   end
 

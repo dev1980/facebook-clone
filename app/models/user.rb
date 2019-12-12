@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :likings
   has_many :sent_requests, foreign_key: :sender_id, class_name: 'Friendship'
   has_many :received_requests, foreign_key: :receiver_id, class_name: 'Friendship'
+  
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
@@ -35,13 +36,10 @@ class User < ApplicationRecord
   end
 
   def friends
-    friends_array = received_requests.map do |u|
-      u.sender if u.confirmed
+    friendships = sent_requests.includes(:receiver).where(confirmed: true).references(:users)
+    friendships.map do |f|
+    f.receiver
     end
-    friends_array += sent_requests.map do |u|
-      u.receiver if u.confirmed
-    end
-    friends_array.compact
   end
 
   def pending_friends
@@ -68,8 +66,7 @@ class User < ApplicationRecord
 
   def friends_posts
     friend_ids = friends.map(&:id)
-
-    Post.where('user_id IN (?)', friend_ids)
+    Post.where('user_id IN (?) OR user_id=?', friend_ids, id)
   end
 
   private
