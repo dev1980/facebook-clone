@@ -2,8 +2,23 @@
   <span>Posted <%= link_to time_ago_in_words(post.created_at), post %> ago</span>
   <p class="mb-0"><%= post.content %></p>
 </div>
-
+<ul class="nav justify-content-between mx-auto">
 <%= render partial: 'likes', locals: {post: post}%>
 <%= render partial: 'new_comment', locals: {post: post} %>
+<li class="nav-item px-2"><%= link_to 'Delete Post', post_path(post), method: :delete %></li>
+</ul>
    
+<div id="collapse<%=post.id  %>" class="collapse w-100" data-parent="#accordion">
+  <div class="card-body ">
+    <%= form_for :comment, url: comments_path do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, class: 'form-control' %>
+      </div>
+
+      <%= f.hidden_field :post_id, value: post.id %>
+      
+      <%= f.submit 'Comment', class: 'btn btn-primary'  %>
+    <% end %>
+  </div>
+</div>
  

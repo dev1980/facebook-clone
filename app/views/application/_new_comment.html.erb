@@ -1,18 +1,7 @@
-<div class="col-6">    
-    <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a> |
-    <%= link_to "View Comments", post%> (<%= post.comments.count %>)
-</div>
+<li class="nav-item border-right border-dark px-2">    
+  <a class="link" data-toggle="collapse" href="#collapse<%=post.id  %>">Comment</a>
+</li>
+<li class="nav-item border-right border-dark px-2 ">    
+  <%= link_to "View Comments", post%> (<%= post.comments.count %>)
+</li>
 
-<div id="collapse<%=post.id  %>" class="collapse w-100" data-parent="#accordion">
-  <div class="card-body ">
-    <%= form_for :comment, url: comments_path do |f| %>
-      <div class="form-group">
-        <%= f.text_area :content, class: 'form-control' %>
-      </div>
-
-      <%= f.hidden_field :post_id, value: post.id %>
-      
-      <%= f.submit 'Comment', class: 'btn btn-primary'  %>
-    <% end %>
-  </div>
-</div>
