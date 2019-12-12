@@ -60,9 +60,12 @@ class User < ApplicationRecord
     friendship = received_requests.find { |u| u.sender == user }
     friendship.confirmed = true
     friendship.save
+
+    sent_requests.create(receiver_id: user.id, confirmed: true)
   end
 
   def send_friend_request(user)
+    return if Friendship.exists?(sender_id: id, receiver_id: user.id) || user.id == id
     sent_requests.create(receiver_id: user.id)
   end
 
