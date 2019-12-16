@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root  'posts#index'
-
-  devise_for :users
+  
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :posts, only: [:index, :show, :new, :create, :destroy]
   resources :users, only: [:index, :show]
   resources :comments, only: :create

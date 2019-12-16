@@ -4,7 +4,7 @@ class User < ApplicationRecord
   before_save :format_attributes
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   has_many :posts
   has_many :comments
@@ -70,6 +70,14 @@ class User < ApplicationRecord
   def friends_posts
     friend_ids = friends.map(&:id)
     Post.where('user_id IN (?) OR user_id=?', friend_ids, id)
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name # assuming the user model has a name
+    end
   end
 
   private
