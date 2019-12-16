@@ -23,6 +23,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find_by(id: params[:id])
+    # frozen_string_literal: true
+    post&.destroy
+    redirect_to root_path
+  end
+
   private
 
   def post_params
