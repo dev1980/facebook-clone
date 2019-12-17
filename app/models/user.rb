@@ -76,6 +76,7 @@ class User < ApplicationRecord
     existing_user = find_by(email: auth.info.email)
     if existing_user
       existing_user.update_attributes(provider: auth.provider, uid: auth.uid)
+      existing_user
     else
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
