@@ -1,55 +1,97 @@
-# README
+# Facebook Clone
 
-This project is from the microverse curriculum using The Odin Project
-[https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project]
-The goal is to create first full application facebook clone.
+> This Project replicates the core features of Facebook; Users can create posts, be friends with other users, like and comment posts.
+
+![screenshot](./docs/home_page.png)
+
+## Built With
+
+- Ruby on Rails
+- Bootstrap
+- Authetication with Devise and OAuth
+- Unit and Integration tests with RSpec and Capybara
+
+## Live Demo
+
+[Live Demo Link](https://intense-wave-17449.herokuapp.com/)
 
 
-## Setup & Use
-To run the project first clone the repo:
+## Getting Started
 
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- Ruby v2.6.x
+- Rails v6.0.x
+- PostgreSQL
+
+### Setup
+
+- Clone the Repository
 ```
 git clone https://github.com/dev1980/facebook-clone.git
-
 ```
-Then cd to the project folder:
+- Go to the project folder 
 ```
 cd facebook-clone
-```
-
-Upadte gems from the Gemfile:
-```
-bundle update
-```
-To setup postgresql database you have to write your credentials in .env.template.
 
 ```
-# .env.template
-PG_USERNAME='your username'
-PG_PASSWORD='your password'
-```
 
-Then migrate the database:
-```
-rails db:migrate
-```
-If there are any errors for the Gemfile, then please install as said in the error messages.
+### Install
 
-Navigate through the project tables from the console:
+- Open the .env.template file and add your postgreSQL credentials
 ```
-rails console
+PG_USERNAME='my_postgre_username'
+PG_PASSWORD='my_postgre_password'
 ```
+- Rename the .env.template file to just .env
+- Run `bundle install`
+- Run `rails db:create`
+- Run `rails db:migrate`
+- Run `rails db:seed` if you want to add some sample data.
 
-To run all the tests:
-```
-rails db:migrate RAILS_ENV=test
-rails spec
-```
+### Usage
 
-## Requirements
-Ruby version 2.6.x
-Rails version 6.0.1
-Bundler version 2.0.2
+- Run `rails db:server`
+- Go to [localhost](http://localhost:3000)
+
+### Run tests
+
+- Run `rails db:migrate RAILS_ENV=test`
+- Run `rails spec`
+
+### Deployment
+
+- Run `heroku create`
+- Push the project to heroku `git push heroku:master`
 
 
-Authors: [Brham Dev Mahato](https://github.com/dev1980),  [Miguel Prada](https://github.com/mapra99)
+## Authors
+
+👤 **Brham Dev Mahato**
+
+- Github: [@dev1980](https://github.com/dev1980)
+- Twitter: [@MahatoBrham](https://twitter.com/MahatoBrham)
+- Linkedin: [dev1980](www.linkedin.com/in/dev1980)
+
+👤 **Miguel Prada**
+
+- Github: [@mapra99](https://github.com/mapra99)
+- Twitter: [@MiguelPrada1](https://twitter.com/MiguelPrada1)
+- Linkedin: [mprada](https://www.linkedin.com/in/mprada/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
+
