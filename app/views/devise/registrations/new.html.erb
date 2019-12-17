@@ -31,6 +31,7 @@
   <div class="actions">
     <%= f.submit "Sign up", class:'btn btn-primary' %>
   </div>
+  <p>By clicking on Signup you are accepting the <%= link_to 'Terms & Conditions', terms_conditions_path %>  and <%= link_to 'Privacy Policy', privacy_policy_path %> 
 <% end %>
 
 <%= render "devise/shared/links" %>
