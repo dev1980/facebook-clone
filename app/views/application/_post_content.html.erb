@@ -5,7 +5,7 @@
 <ul class="nav justify-content-between mx-auto">
 <%= render partial: 'likes', locals: {post: post}%>
 <%= render partial: 'new_comment', locals: {post: post} %>
-<li class="nav-item px-2"><%= link_to 'Delete Post', post_path(post), method: :delete %></li>
+<%if current_user.id == post.user_id %><li class="nav-item border-left border-dark px-2"><%= link_to 'Delete Post', post_path(post), method: :delete %></li><%end%>
 </ul>
    
 <div id="collapse<%=post.id  %>" class="collapse w-100" data-parent="#accordion">
