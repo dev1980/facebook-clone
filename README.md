@@ -35,9 +35,7 @@ git clone https://github.com/dev1980/facebook-clone.git
 - Go to the project folder 
 ```
 cd facebook-clone
-
 ```
-
 ### Install
 
 - Open the .env.template file and add your postgreSQL credentials
