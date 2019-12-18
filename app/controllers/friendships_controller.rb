@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    user = User.find(params[:user_id])
+    user = User.find_by_id(params[:user_id])
     return unless user
 
     current_user.send_friend_request(user)
@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
+    user = User.find_by_id(params[:id])
     return unless user
 
     current_user.confirm_friend(user)

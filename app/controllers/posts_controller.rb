@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
   end
 
   def new
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find_by(id: params[:id])
+    post = Post.find_by_id(params[:id])
     # frozen_string_literal: true
     post&.destroy
     redirect_to root_path
