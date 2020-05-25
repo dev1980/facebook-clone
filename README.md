@@ -87,7 +87,7 @@ Feel free to check the [issues page](issues/).
 
 ## Future Imporvements
 - Use sass for styling.
-- Implement feature for users to delete comment and post.
+- Implement option for user to delete comments.
 
 ## Show your support
 
