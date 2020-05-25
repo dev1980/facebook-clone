@@ -85,6 +85,10 @@ Contributions, issues and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
 
+## Future Imporvements
+- Use sass for styling.
+- Implement feature for users to delete comments and posts.
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
