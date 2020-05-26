@@ -8,7 +8,7 @@
 
 - Ruby on Rails
 - Bootstrap
-- Authetication with Devise and OAuth
+- Authentication with Devise and OAuth
 - Unit and Integration tests with RSpec and Capybara
 
 ## Live Demo
@@ -45,9 +45,9 @@ PG_PASSWORD='my_postgre_password'
 ```
 - Rename the .env.template file to just .env
 - Run `bundle install`
-- Run `rails db:create`
-- Run `rails db:migrate`
-- Run `rails db:seed` if you want to add some sample data.
+- Run `rails db: create`
+- Run `rails db: migrate`
+- Run `rails db: seed` if you want to add some sample data.
 
 ### Usage
 
@@ -62,7 +62,7 @@ PG_PASSWORD='my_postgre_password'
 ### Deployment
 
 - Run `heroku create`
-- Push the project to heroku `git push heroku:master`
+- Push the project to heroku `git push heroku: master`
 
 
 ## Authors
@@ -81,19 +81,4 @@ PG_PASSWORD='my_postgre_password'
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
-
-Feel free to check the [issues page](issues/).
-
-## Future Imporvements
-- Use sass for styling.
-- Implement option for user to delete comments.
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## 📝 License
-
-This project is [MIT](lic.url) licensed.
-
+Contributions, issues, and feature requests are welcome!
